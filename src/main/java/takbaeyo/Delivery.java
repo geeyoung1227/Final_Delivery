@@ -22,8 +22,6 @@ public class Delivery {
         Delivered delivered = new Delivered();
         BeanUtils.copyProperties(this, delivered);
         delivered.publishAfterCommit();
-
-
     }
 
 

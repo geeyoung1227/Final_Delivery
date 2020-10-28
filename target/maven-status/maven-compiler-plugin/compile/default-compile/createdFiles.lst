@@ -4,6 +4,7 @@ takbaeyo\Delivery.class
 takbaeyo\config\kafka\KafkaProcessor.class
 takbaeyo\Delivered.class
 takbaeyo\AbstractEvent.class
+takbaeyo\PaidCoupon.class
 takbaeyo\DeliveryController.class
 takbaeyo\AbstractEvent$1.class
 takbaeyo\DeliveryApplication.class

@@ -22,16 +22,27 @@ public class PolicyHandler{
     public void wheneverPaid_DeliverySetPol(@Payload Paid paid){
 
         if(paid.isMe()){
-
-            //LJK
             Delivery delivery = new Delivery();
             delivery.setRequestId(paid.getRequestId());
             delivery.setStatus("BeforeChecked");
             delivery.setLocation("-");
             delivery.setMemberId(paid.getMemberId());
             deliveryRepository.save(delivery);
-            //LJK
             System.out.println("##### listener DeliverySetPol : " + paid.toJson());
+        }
+    }
+
+    @StreamListener(KafkaProcessor.INPUT)
+    public void wheneverPaidCoupon_DeliverySetPol(@Payload PaidCoupon paidCoupon){
+
+        if(paidCoupon.isMe()){
+            Delivery delivery = new Delivery();
+            delivery.setRequestId(paidCoupon.getRequestId());
+            delivery.setStatus("BeforeChecked");
+            delivery.setLocation("-");
+            delivery.setMemberId(paidCoupon.getMemberId());
+            deliveryRepository.save(delivery);
+            System.out.println("##### listener DeliverySetPol : " + paidCoupon.toJson());
         }
     }
 
